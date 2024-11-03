@@ -7,10 +7,8 @@ package edu.grinnell.csc207.util;
  * @author Tiffany
  *
  */
-
 public interface FourInRow {
   
-
   /**
    * Inserts a token for player1 in the desired column.
    *
@@ -19,6 +17,9 @@ public interface FourInRow {
    *
    * @throws IndexOutOfBoundsException
    *   If the column is negative or greater than the width.
+   * 
+   * @throws IllegalArgumentException 
+   *   If the column is full.
    */
   public void insertToken1(int col);
 
@@ -30,6 +31,10 @@ public interface FourInRow {
    *
    * @throws IndexOutOfBoundsException
    *   If the column is negative or greater than the width.
+   * 
+   * @throws IllegalArgumentException 
+   *   If the column is full.
    */
   public void insertToken2(int col);
+
 } // class FourInRow
