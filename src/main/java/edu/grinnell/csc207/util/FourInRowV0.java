@@ -110,17 +110,21 @@ public class FourInRowV0 implements FourInRow {
   }//method hasWinner
 
   /**
-   * Set player1's name
+   * Set player1's name, 
+   * @return String player1
    */
-  public void setP1(String p1){
+  public String setP1(String p1){
     this.player1 = p1;
+    return player1;
   }//method setP1
 
   /**
    * Set player2's name
+   * @return String player2
    */
-  public void setP2(String p2){
+  public String setP2(String p2){
     this.player2 = p2;
+    return player2;
   }//method setP2
 
 } // class FourInRowV0
