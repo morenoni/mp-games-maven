@@ -19,7 +19,7 @@ public class GameUtils {
   public static int lastInCol(int col, Matrix<String> matrix) {
     int height = matrix.height();
     for (int row = height - 1; row >= 0; row--) {
-      if (matrix.get(row, col) == null || matrix.get(row, col).equals("/")) {
+      if (matrix.get(row, col) == null || matrix.get(row, col).equals(" ")) {
         return row;
       } // if
     } // for
