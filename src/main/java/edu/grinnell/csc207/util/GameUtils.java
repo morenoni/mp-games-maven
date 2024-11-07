@@ -23,7 +23,7 @@ public class GameUtils {
         return row;
       } // if
     } // for
-    return -1; 
+    return -1;
   } // method lastInCol
 
   /**
@@ -40,10 +40,10 @@ public class GameUtils {
     // Check horizontal win
     for (int row = 0; row < rows; row++) {
       for (int col = 0; col <= cols - 4; col++) {
-        if (matrix.get(row, col).equals(token) &&
-            matrix.get(row, col + 1).equals(token) &&
-            matrix.get(row, col + 2).equals(token) &&
-            matrix.get(row, col + 3).equals(token)) {
+        if (matrix.get(row, col).equals(token)
+            && matrix.get(row, col + 1).equals(token)
+            && matrix.get(row, col + 2).equals(token)
+            && matrix.get(row, col + 3).equals(token)) {
           return true;
         } // if
       } // for
@@ -52,10 +52,10 @@ public class GameUtils {
     // Check vertical win
     for (int col = 0; col < cols; col++) {
       for (int row = 0; row <= rows - 4; row++) {
-        if (matrix.get(row, col).equals(token) &&
-            matrix.get(row + 1, col).equals(token) &&
-            matrix.get(row + 2, col).equals(token) &&
-            matrix.get(row + 3, col).equals(token)) {
+        if (matrix.get(row, col).equals(token)
+            && matrix.get(row + 1, col).equals(token)
+            && matrix.get(row + 2, col).equals(token)
+            && matrix.get(row + 3, col).equals(token)) {
           return true;
         } // if
       } // for
@@ -64,10 +64,10 @@ public class GameUtils {
     // Check diagonal (\) win
     for (int row = 0; row <= rows - 4; row++) {
       for (int col = 0; col <= cols - 4; col++) {
-        if (matrix.get(row, col).equals(token) &&
-            matrix.get(row + 1, col + 1).equals(token) &&
-            matrix.get(row + 2, col + 2).equals(token) &&
-            matrix.get(row + 3, col + 3).equals(token)) {
+        if (matrix.get(row, col).equals(token)
+            && matrix.get(row + 1, col + 1).equals(token)
+            && matrix.get(row + 2, col + 2).equals(token)
+            && matrix.get(row + 3, col + 3).equals(token)) {
           return true;
         } // if
       } // for
@@ -76,15 +76,15 @@ public class GameUtils {
     // Check diagonal (/) win
     for (int row = 3; row < rows; row++) {
       for (int col = 0; col <= cols - 4; col++) {
-        if (matrix.get(row, col).equals(token) &&
-            matrix.get(row - 1, col + 1).equals(token) &&
-            matrix.get(row - 2, col + 2).equals(token) &&
-            matrix.get(row - 3, col + 3).equals(token)) {
+        if (matrix.get(row, col).equals(token)
+            && matrix.get(row - 1, col + 1).equals(token)
+            && matrix.get(row - 2, col + 2).equals(token)
+            && matrix.get(row - 3, col + 3).equals(token)) {
           return true;
         } // if
       } // for
     } // for
-    return false; 
+    return false;
   } //method isWinner
 
   /**
@@ -102,5 +102,4 @@ public class GameUtils {
     } // for
     return true;
   } // method isDraw
-
-}
+} // class GameUtils

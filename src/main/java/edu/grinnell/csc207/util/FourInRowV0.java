@@ -9,34 +9,50 @@ import java.io.PrintWriter;
  *
  */
 public class FourInRowV0 implements FourInRow {
-  
+
+  /** variable to help print messages. */
   private PrintWriter pen;
+  /** matrix that hold the game information. */
   private Matrix<String> board;
+  /** char token for player1. */
   private static final String PLAYER1_TOKEN = "X";
+  /** char token for player2. */
   private static final String PLAYER2_TOKEN = "O";
+  /** name of player1. */
   private String player1 = "";
+  /** name of player2. */
   private String player2 = "";
-  private int ROWS;
-  private int COLS;
+  /** number of rows of the board matrix. */
+  private int rows;
+  /** number of columns of the board matrix. */
+  private int cols;
+  /** a boolean show whether someone has won. */
   private boolean hasWinner = false;;
 
   /**
    * Constructor that initializes the game board with 6x7 dimensions.
-   *
-   * @param pen The PrintWriter used for printing.
+   * @param row the number of rows of the game board
+   * @param col the number of columns of the game board
+   * @param penwriter The PrintWriter used for printing.
    */
-  public FourInRowV0(PrintWriter pen, int rows, int cols) {
-    ROWS = rows;
-    COLS = cols;
+  public FourInRowV0(PrintWriter penwriter, int row, int col) {
+    rows = row;
+    cols = col;
     board = new MatrixV0<>(cols, rows, " ");
-    this.pen = pen;
+    this.pen = penwriter;
   } // constructor FourInRowV0
 
+  /**
+   * Call insertToken function with player1's name and token.
+   */
   @Override
   public void insertToken1(int col) {
     insertToken(col, PLAYER1_TOKEN, player1);
   } // method insertToken1
 
+  /**
+   * Call insertToken function with player2's name and token.
+   */
   @Override
   public void insertToken2(int col) {
     insertToken(col, PLAYER2_TOKEN, player2);
@@ -52,8 +68,9 @@ public class FourInRowV0 implements FourInRow {
    * @throws IllegalArgumentException if the column is full.
    */
   private void insertToken(int col, String token, String playerName) {
-    if (col < 0 || col >= COLS) {
-      throw new IndexOutOfBoundsException("Column index out of bounds. Valid range: 0 to " + (COLS - 1));
+    if (col < 0 || col >= cols) {
+      throw new IndexOutOfBoundsException(
+        "Column index out of bounds. Valid range: 0 to " + (cols - 1));
     } // if
 
     int row = GameUtils.lastInCol(col, board);
@@ -73,57 +90,63 @@ public class FourInRowV0 implements FourInRow {
   } // method insertToken
 
   /**
-   * Draw the current board
+   * Draw the current board.
    */
   public void displayBoard() {
     pen.println("Current board:");
     Matrix.print(pen, board);
   } // method displayBoard
-  
-  /**
-   * Return the ROWS of the board
-   */
-  public int row(){
-    return this.ROWS;
-  }//method row
-  
-  /**
-   * Return the COLS of the board
-   */
-  public int col(){
-    return this.COLS;
-  }//method col
 
   /**
-   * return the board
+   * Return the rows of the board.
+   * @return rows
+   */
+  public int row() {
+    return this.rows;
+  } //method row
+
+  /**
+   * Return the cols of the board.
+   * @return cols
+   */
+  public int col() {
+    return this.cols;
+  } //method col
+
+  /**
+   * Return the board.
+   * @return board
   */
-  public Matrix<String> board(){
+  public Matrix<String> board() {
     return this.board;
-  }//method board
+  } //method board
 
   /**
-   * return the boolean hasWinner status
+   * Return the boolean hasWinner status.
+   * @return boolean hasWinner
    */
-  public boolean hasWinner(){
+  public boolean hasWinner() {
     return this.hasWinner;
-  }//method hasWinner
+  } //method hasWinner
 
   /**
-   * Set player1's name, 
+   * Set player1's name.
+   * @param p1 the name of player 1
    * @return String player1
    */
-  public String setP1(String p1){
+  public String setP1(String p1) {
     this.player1 += p1;
     return player1;
-  }//method setP1
+  } //method setP1
 
   /**
-   * Set player2's name
+   * Set player2's name.
+   * @param p2 the name of player 2
    * @return String player2
    */
-  public String setP2(String p2){
+  public String setP2(String p2) {
     this.player2 += p2;
     return player2;
-  }//method setP2
+  } //method setP2
 
 } // class FourInRowV0
