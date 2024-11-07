@@ -63,7 +63,6 @@ public class FourInRowV0 implements FourInRow {
 
     board.set(row, col, token);
     pen.println(playerName + " inserted token at column " + col);
-    displayBoard();
 
     if (GameUtils.isWinner(board, token)) {
       this.hasWinner = true;
