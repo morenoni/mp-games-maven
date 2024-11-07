@@ -86,27 +86,41 @@ public class FourInRowV0 implements FourInRow {
    */
   public int row(){
     return this.ROWS;
-  }
+  }//method row
   
   /**
    * Return the COLS of the board
    */
   public int col(){
     return this.COLS;
-  }
+  }//method col
 
   /**
    * return the board
   */
   public Matrix<String> board(){
     return this.board;
-  }
+  }//method board
 
   /**
    * return the boolean hasWinner status
    */
   public boolean hasWinner(){
     return this.hasWinner;
-  }
+  }//method hasWinner
+
+  /**
+   * Set player1's name
+   */
+  public void setP1(String p1){
+    this.player1 = p1;
+  }//method setP1
+
+  /**
+   * Set player2's name
+   */
+  public void setP2(String p2){
+    this.player2 = p2;
+  }//method setP2
 
 } // class FourInRowV0
