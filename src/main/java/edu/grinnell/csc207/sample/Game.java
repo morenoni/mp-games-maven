@@ -140,10 +140,34 @@ public class Game {
     // Set up the board
     FourInRowV0 sampleFIR = new FourInRowV0(pen,rows,cols);
     Matrix<String> board = sampleFIR.board();
-
+    
     // Run the game
+    
+    String[] commands = new String[] {"INSERT1","INSERT2"};
+    while(!sampleFIR.hasWinner())
+    {
+      sampleFIR.displayBoard();
+      String command = IOUtils.readCommand(pen, eyes, "Action: ", commands);
+      switch (command.toUpperCase()) {
+        case "INSERT1":
+        {
+          int colToInsert1 =
+              IOUtils.readInt(pen, eyes, "Column: ", 0, board.width());
+          sampleFIR.insertToken1(colToInsert1);
+        }
+        break;
+
+        case "INSERT2":
+        {
+          int colToInsert2 =
+              IOUtils.readInt(pen, eyes, "Column: ", 0, board.width());
+          sampleFIR.insertToken1(colToInsert2);
+        }
+        break;
+      }
+    }//while
     
     // And we're done
     pen.close();
   } // main(String[])
-} // class Game1P
+} // class Game
