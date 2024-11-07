@@ -27,7 +27,9 @@ public class FourInRowV0 implements FourInRow {
   /** number of columns of the board matrix. */
   private int cols;
   /** a boolean show whether someone has won. */
-  private boolean hasWinner = false;;
+  private boolean hasWinner = false;
+  /** a boolean show whether the board if full. */
+  private boolean hasDraw = false;
 
   /**
    * Constructor that initializes the game board with 6x7 dimensions.
@@ -86,9 +88,12 @@ public class FourInRowV0 implements FourInRow {
     if (GameUtils.isWinner(board, token)) {
       this.hasWinner = true;
       pen.println(playerName + " wins!");
+      this.displayBoard();
     } else if (GameUtils.isDraw(board)) {
+      this.hasDraw = true;
       pen.println("The game is a draw.");
     } // else if
+
   } // method insertToken
 
   /**
@@ -130,6 +135,14 @@ public class FourInRowV0 implements FourInRow {
   public boolean hasWinner() {
     return this.hasWinner;
   } //method hasWinner
+
+  /**
+   * Return the isDraw status.
+   * @return boolean hasDraw
+   */
+  public boolean hasDraw() {
+    return this.hasDraw;
+  } //method hasDraw
 
   /**
    * Set player1's name.
