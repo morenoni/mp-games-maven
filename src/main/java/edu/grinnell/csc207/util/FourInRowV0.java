@@ -14,8 +14,11 @@ public class FourInRowV0 implements FourInRow {
   private Matrix<String> board;
   private static final String PLAYER1_TOKEN = "X";
   private static final String PLAYER2_TOKEN = "O";
+  private String player1;
+  private String player2;
   private int ROWS;
   private int COLS;
+  private boolean hasWinner = false;;
 
   /**
    * Constructor that initializes the game board with 6x7 dimensions.
@@ -31,12 +34,12 @@ public class FourInRowV0 implements FourInRow {
 
   @Override
   public void insertToken1(int col) {
-    insertToken(col, PLAYER1_TOKEN, "Player 1");
+    insertToken(col, PLAYER1_TOKEN, player1);
   } // method insertToken1
 
   @Override
   public void insertToken2(int col) {
-    insertToken(col, PLAYER2_TOKEN, "Player 2");
+    insertToken(col, PLAYER2_TOKEN, player2);
   } // method insertToken2
 
   /**
@@ -63,6 +66,7 @@ public class FourInRowV0 implements FourInRow {
     displayBoard();
 
     if (GameUtils.isWinner(board, token)) {
+      this.hasWinner = true;
       pen.println(playerName + " wins!");
     } else if (GameUtils.isDraw(board)) {
       pen.println("The game is a draw.");
@@ -96,6 +100,13 @@ public class FourInRowV0 implements FourInRow {
   */
   public Matrix<String> board(){
     return this.board;
+  }
+
+  /**
+   * return the boolean hasWinner status
+   */
+  public boolean hasWinner(){
+    return this.hasWinner;
   }
 
 } // class FourInRowV0
