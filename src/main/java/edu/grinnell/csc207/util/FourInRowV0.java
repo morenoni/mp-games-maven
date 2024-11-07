@@ -14,16 +14,18 @@ public class FourInRowV0 implements FourInRow {
   private Matrix<String> board;
   private static final String PLAYER1_TOKEN = "X";
   private static final String PLAYER2_TOKEN = "O";
-  private static final int ROWS = 6;
-  private static final int COLS = 7;
+  private int ROWS;
+  private int COLS;
 
   /**
    * Constructor that initializes the game board with 6x7 dimensions.
    *
    * @param pen The PrintWriter used for printing.
    */
-  public FourInRowV0(PrintWriter pen) {
-    board = new MatrixV0<>(COLS, ROWS, "/");
+  public FourInRowV0(PrintWriter pen, int rows, int cols) {
+    ROWS = rows;
+    COLS = cols;
+    board = new MatrixV0<>(cols, rows, "/");
     this.pen = pen;
   } // constructor FourInRowV0
 
@@ -67,9 +69,33 @@ public class FourInRowV0 implements FourInRow {
     } // else if
   } // method insertToken
 
+  /**
+   * Draw the current board
+   */
   public void displayBoard() {
     pen.println("Current board:");
     Matrix.print(pen, board);
   } // method displayBoard
+  
+  /**
+   * Return the ROWS of the board
+   */
+  public int row(){
+    return this.ROWS;
+  }
+  
+  /**
+   * Return the COLS of the board
+   */
+  public int col(){
+    return this.COLS;
+  }
+
+  /**
+   * return the board
+  */
+  public Matrix<String> board(){
+    return this.board;
+  }
 
 } // class FourInRowV0
