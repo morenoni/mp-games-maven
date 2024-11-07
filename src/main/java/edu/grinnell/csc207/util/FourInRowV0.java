@@ -28,7 +28,7 @@ public class FourInRowV0 implements FourInRow {
   public FourInRowV0(PrintWriter pen, int rows, int cols) {
     ROWS = rows;
     COLS = cols;
-    board = new MatrixV0<>(cols, rows, "/");
+    board = new MatrixV0<>(cols, rows, " ");
     this.pen = pen;
   } // constructor FourInRowV0
 
