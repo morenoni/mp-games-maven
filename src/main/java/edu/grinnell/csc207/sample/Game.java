@@ -13,7 +13,6 @@ import java.io.PrintWriter;
 
 /**
  * A two-player game with the goal of connecting 4 tokens in a line.
- * 
  * @author Tiffany Tang
  */
 public class Game {
@@ -39,16 +38,16 @@ public class Game {
                 * -p1 player1 - set up the name of the player one
                 * -p2 player2 - set up the name of the player two
 
-                Your game board is a grid of blanks that could be filled with either 
-                token 'X' or token 'O'.
+                Your game board is a grid of blanks that could be filled with either token
+                'X' or token 'O'.
 
                 Your goal is to make four tokens in a row, whether diagonal or horizontal,
-                before the other player. Otherise, you lose. 
+                before the other player. Otherise, you lose.
 
                 The only move a player can make is to specify which column of the board
                 that you want to insert your token. It will automatically insert a token
                 for you at the position at the last empty row at the specified column.
-                
+
 
                 * INSERT1: insert a token for player one
                 * INSERT2: insert a token for player two
@@ -132,38 +131,34 @@ public class Game {
     eyes.readLine();
 
     // Set up the board and player information
-    FourInRowV0 sampleFIR = new FourInRowV0(pen,rows,cols);
+    FourInRowV0 sampleFIR = new FourInRowV0(pen, rows, cols);
     Matrix<String> board = sampleFIR.board();
     sampleFIR.setP1(p1);
     sampleFIR.setP2(p2);
-    
+
     // Run the game
-    
-    String[] commands = new String[] {"INSERT1","INSERT2"};
-    while(!sampleFIR.hasWinner())
-    {
+
+    String[] commands = new String[] {"INSERT1", "INSERT2"};
+    while (!sampleFIR.hasWinner()) {
       sampleFIR.displayBoard();
       String command = IOUtils.readCommand(pen, eyes, "Action: ", commands);
       switch (command.toUpperCase()) {
+
         case "INSERT1":
-        {
-          int colToInsert1 =
-              IOUtils.readInt(pen, eyes, "Column: ", 0, board.width());
+          int colToInsert1 = IOUtils.readInt(pen, eyes, "Column: ", 0, board.width());
           sampleFIR.insertToken1(colToInsert1);
-        }
-        break;
+          break;
 
         case "INSERT2":
-        {
-          int colToInsert2 =
-              IOUtils.readInt(pen, eyes, "Column: ", 0, board.width());
+          int colToInsert2 = IOUtils.readInt(pen, eyes, "Column: ", 0, board.width());
           sampleFIR.insertToken2(colToInsert2);
-        }
-        break;
-      }
-    }//while
-    
-    // And we're done
+          break;
+
+        default:
+          System.err.printf("%s Invalid move", command);
+
+      } //switch
+    } //while
     pen.close();
   } // main(String[])
 } // class Game
