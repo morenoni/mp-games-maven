@@ -14,8 +14,8 @@ public class FourInRowV0 implements FourInRow {
   private Matrix<String> board;
   private static final String PLAYER1_TOKEN = "X";
   private static final String PLAYER2_TOKEN = "O";
-  private String player1;
-  private String player2;
+  private String player1 = "";
+  private String player2 = "";
   private int ROWS;
   private int COLS;
   private boolean hasWinner = false;;
@@ -114,7 +114,7 @@ public class FourInRowV0 implements FourInRow {
    * @return String player1
    */
   public String setP1(String p1){
-    this.player1 = p1;
+    this.player1 += p1;
     return player1;
   }//method setP1
 
@@ -123,7 +123,7 @@ public class FourInRowV0 implements FourInRow {
    * @return String player2
    */
   public String setP2(String p2){
-    this.player2 = p2;
+    this.player2 += p2;
     return player2;
   }//method setP2
 
