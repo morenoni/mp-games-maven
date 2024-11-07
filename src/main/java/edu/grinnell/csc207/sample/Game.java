@@ -150,9 +150,12 @@ public class Game {
     sampleFIR.setP2(p2);
 
     // Run the game
-
     String[] commands = new String[] {"INSERT1", "INSERT2"};
     while (!sampleFIR.hasWinner()) {
+      if (sampleFIR.hasDraw()) {
+        sampleFIR.displayBoard();
+        break;
+      } // if
       sampleFIR.displayBoard();
       String command = IOUtils.readCommand(pen, eyes, "Action: ", commands);
       switch (command.toUpperCase()) {
