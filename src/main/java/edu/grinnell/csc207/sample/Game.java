@@ -14,7 +14,6 @@ import java.io.PrintWriter;
 /**
  * A two-player game with the goal of connecting 4 tokens in a line.
  * 
- * @author Samuel A. Rebelsky (template of Game1P)
  * @author Tiffany Tang
  */
 public class Game {
