@@ -39,9 +39,9 @@ public class MatrixV0<T> implements Matrix<T> {
    * Create a new matrix of the specified width and height with the
    * given value as the default.
    *
-   * @param width
+   * @param width0
    *   The width of the matrix.
-   * @param height
+   * @param height0
    *   The height of the matrix.
    * @param def
    *   The default value, used to fill all the cells.
@@ -50,12 +50,12 @@ public class MatrixV0<T> implements Matrix<T> {
    *   If either the width or height are negative.
    */
   @SuppressWarnings("unchecked")
-  public MatrixV0(int width, int height, T def) {
+  public MatrixV0(int width0, int height0, T def) {
     if (width < 0 || height < 0) {
       throw new NegativeArraySizeException("Matrix dimensions must be non-negative.");
     } // if
-    this.width = width;
-    this.height = height;
+    this.width = width0;
+    this.height = height0;
     this.defaultValue = def;
     this.contents = (T[][]) new Object[this.height][this.width];
     for (int row = 0; row < this.height; row++) {
@@ -66,19 +66,18 @@ public class MatrixV0<T> implements Matrix<T> {
   } // MatrixV0(int, int, T)
 
   /**
-   * Create a new matrix of the specified width and height with
-   * null as the default value.
+   * Create a new matrix of the specified width and height with null as the default value.c.
    *
-   * @param width
-   *   The width of the matrix.
-   * @param height
+   * @param newWidth
+   *   The width of the matrix.clea
+   * @param newHeight
    *   The height of the matrix.
    *
    * @throws NegativeArraySizeException
    *   If either the width or height are negative.
    */
-  public MatrixV0(int width, int height) {
-    this(width, height, null);
+  public MatrixV0(int newWidth, int newHeight) {
+    this(newWidth, newHeight, null);
   } // MatrixV0
 
   // +--------------+------------------------------------------------
