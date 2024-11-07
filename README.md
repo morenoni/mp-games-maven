@@ -42,12 +42,12 @@ Instructions:
   
   In the command line add:
 
-    mvn clean install
-    java -jar target/games-1.0.jar -r rows -c cols -p1 player1 -p2 player2
+    * mvn clean install
+    * java -jar target/games-1.0.jar -r rows -c cols -p1 player1 -p2 player2
 
 
 Acknowledgements:
-Game.java is written in a similar structure of the Game1P wrote by Sam.
+Game.java is written with a similar structure of the Game1P wrote by Sam.
 
 Source:
 This code may be found at <https://github.com/morenoni/mp-games-maven.git>. It is based on code found at <https://github.com/Grinnell-CSC207/mp-games-maven>.
