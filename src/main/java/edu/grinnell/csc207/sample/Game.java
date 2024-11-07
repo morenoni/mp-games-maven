@@ -1,19 +1,19 @@
 package edu.grinnell.csc207.sample;
 
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import edu.grinnell.csc207.util.FourInRowV0;
 import edu.grinnell.csc207.util.IOUtils;
 import edu.grinnell.csc207.util.Matrix;
-import edu.grinnell.csc207.util.FourInRowV0;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 
 /**
  * A two-player game with the goal of connecting 4 tokens in a line.
  * @author Tiffany Tang
+ * @author Nicole Moreno Gonzalez
  */
 public class Game {
 
@@ -29,6 +29,7 @@ public class Game {
    */
   public static void printInstructions(PrintWriter pen) {
     pen.println("""
+
                 Welcome to the game "Four in Row".
 
                 Command-line arguments:
@@ -38,19 +39,31 @@ public class Game {
                 * -p1 player1 - set up the name of the player one
                 * -p2 player2 - set up the name of the player two
 
+                ***READ*** If you didn't run the program in the form:
+
+                    mvn clean install
+                    java -jar target/games-1.0.jar -r rows -c cols -p1 player1 -p2 player2
+
+                  Please run the game again, otherwise your board won't have dimensions.
+
+                ---------
+
+                In this game your goal is to align four tokens in a row, whether diagonal, vertical
+                or horizontal, before the other player. Otherwise, you lose.
+
                 Your game board is a grid of blanks that could be filled with either token
-                'X' or token 'O'.
+                'X' (for player 1) or token 'O' (for player 2).
 
-                Your goal is to make four tokens in a row, whether diagonal or horizontal,
-                before the other player. Otherise, you lose.
+                The only move you can make as a player is to specify in which column of the board
+                you want to insert your token. It will automatically insert a token at the last
+                empty spot at the specified column.
 
-                The only move a player can make is to specify which column of the board
-                that you want to insert your token. It will automatically insert a token
-                for you at the position at the last empty row at the specified column.
+                In-game commands:
 
+                * INSERT1: prompts to write a column to insert a token for player 1
+                * INSERT2: prompts to write a column to insert a token for player 2
 
-                * INSERT1: insert a token for player one
-                * INSERT2: insert a token for player two
+                **Note** Valid ranges of column are between 0 and setted up columns number -1.
 
                 After each move, a corresponding token for the player will appear in the board.
 
@@ -92,7 +105,7 @@ public class Game {
             return;
           } // try/catch
           if (rows < 6) {
-            System.err.printf("Invalid height: %s (less than 6)\n", rows);
+            System.err.printf("Invalid height: %s (It needs to be 6 or greater)\n", rows);
             return;
           } // if
           break;
@@ -105,7 +118,7 @@ public class Game {
             return;
           } // try/catch
           if (cols < 7) {
-            System.err.printf("Invalid height: %s (less than 7)\n", cols);
+            System.err.printf("Invalid height: %s (It needs to be 7 or greater)\n", cols);
             return;
           } // if
           break;

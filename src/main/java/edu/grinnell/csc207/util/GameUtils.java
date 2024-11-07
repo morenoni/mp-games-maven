@@ -4,7 +4,7 @@ package edu.grinnell.csc207.util;
  * Implementation of additional methods for the game.
  *
  * @author Nicole Moreno Gonzalez
- * @author Tiffany
+ * @author Tiffany Tang
  *
  */
 public class GameUtils {

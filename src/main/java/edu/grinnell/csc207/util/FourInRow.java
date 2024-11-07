@@ -4,7 +4,7 @@ package edu.grinnell.csc207.util;
  * Game "4 in a row".
  *
  * @author Nicole Moreno Gonzalez
- * @author Tiffany
+ * @author Tiffany Tang
  *
  */
 public interface FourInRow {
@@ -17,9 +17,6 @@ public interface FourInRow {
    *
    * @throws IndexOutOfBoundsException
    *   If the column is negative or greater than the width.
-   *
-   * @throws IllegalArgumentException
-   *   If the column is full.
    */
   public void insertToken1(int col);
 
@@ -31,9 +28,6 @@ public interface FourInRow {
    *
    * @throws IndexOutOfBoundsException
    *   If the column is negative or greater than the width.
-   *
-   * @throws IllegalArgumentException
-   *   If the column is full.
    */
   public void insertToken2(int col);
 

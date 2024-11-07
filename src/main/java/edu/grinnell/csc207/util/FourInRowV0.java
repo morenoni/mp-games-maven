@@ -5,7 +5,7 @@ import java.io.PrintWriter;
  * An implementation of Four in a Row.
  *
  * @author Nicole Moreno Gonzalez
- * @author Tiffany
+ * @author Tiffany Tang
  *
  */
 public class FourInRowV0 implements FourInRow {
@@ -44,6 +44,7 @@ public class FourInRowV0 implements FourInRow {
 
   /**
    * Call insertToken function with player1's name and token.
+   * @param col the column to insert the token.
    */
   @Override
   public void insertToken1(int col) {
@@ -52,6 +53,7 @@ public class FourInRowV0 implements FourInRow {
 
   /**
    * Call insertToken function with player2's name and token.
+   * @param col the column to insert the token.
    */
   @Override
   public void insertToken2(int col) {
@@ -65,7 +67,6 @@ public class FourInRowV0 implements FourInRow {
    * @param token is the token representing the player.
    * @param playerName name of the player for output.
    * @throws IndexOutOfBoundsException if the column is negative or greater than the width.
-   * @throws IllegalArgumentException if the column is full.
    */
   private void insertToken(int col, String token, String playerName) {
     if (col < 0 || col >= cols) {
@@ -75,7 +76,8 @@ public class FourInRowV0 implements FourInRow {
 
     int row = GameUtils.lastInCol(col, board);
     if (row == -1) {
-      throw new IllegalArgumentException("Column is full.");
+      pen.println("***Column " + col + " is full. Please choose a different column.***");
+      return; // Exit early if the column is full
     } // if
 
     board.set(row, col, token);
