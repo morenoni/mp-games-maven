@@ -1,19 +1,14 @@
 package edu.grinnell.csc207.sample;
 
-import edu.grinnell.csc207.util.ArrayUtils;
+
 import edu.grinnell.csc207.util.IOUtils;
 import edu.grinnell.csc207.util.Matrix;
-import edu.grinnell.csc207.util.MatrixV0;
 import edu.grinnell.csc207.util.FourInRowV0;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
 
 
 /**
@@ -85,8 +80,8 @@ public class Game {
     BufferedReader eyes = new BufferedReader(new InputStreamReader(System.in));
     int rows = 0;
     int cols = 0;
-    String player1;
-    String player2;
+    String p1 = "";
+    String p2 = "";
 
     // Process the command line
     for (int i = 0; i < args.length; i++) {
@@ -118,11 +113,11 @@ public class Game {
           break;
 
         case "-p1":
-          player1 = args[++i];
+          p1 = args[++i];
           break;
 
         case "-p2":
-          player2 = args[++i];
+          p2 = args[++i];
           break;
 
         default:
@@ -137,9 +132,11 @@ public class Game {
     pen.flush();
     eyes.readLine();
 
-    // Set up the board
+    // Set up the board and player information
     FourInRowV0 sampleFIR = new FourInRowV0(pen,rows,cols);
     Matrix<String> board = sampleFIR.board();
+    sampleFIR.setP1(p1);
+    sampleFIR.setP2(p2);
     
     // Run the game
     
@@ -161,7 +158,7 @@ public class Game {
         {
           int colToInsert2 =
               IOUtils.readInt(pen, eyes, "Column: ", 0, board.width());
-          sampleFIR.insertToken1(colToInsert2);
+          sampleFIR.insertToken2(colToInsert2);
         }
         break;
       }
