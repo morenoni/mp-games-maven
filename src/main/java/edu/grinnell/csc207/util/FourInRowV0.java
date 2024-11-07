@@ -101,7 +101,7 @@ public class FourInRowV0 implements FourInRow {
    */
   public void displayBoard() {
     pen.println("Current board:");
-    Matrix.print(pen, board);
+    Matrix.print(pen, board, true);
   } // method displayBoard
 
   /**
